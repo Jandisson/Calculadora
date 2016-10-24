@@ -8,7 +8,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class Calculadora {
 
 
-
+    /**
+     * Realiza a soma de dois números de ponto flutuante
+     * @param numero1
+     * @param numero2
+     * @return
+     */
     @RequestMapping("/soma/{numero1}/{numero2}")
     public double soma(
             @PathVariable double numero1,
