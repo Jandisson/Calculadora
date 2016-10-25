@@ -59,6 +59,9 @@
 				<artifactId>jetty-maven-plugin</artifactId>
 				<version>9.3.13.v20161014</version>
 				<configuration>
+                                         <httpConnector>
+                                           <port>8081</port>
+                                         </httpConnector> 
 					<stopPort>9966</stopPort>
 					<stopKey>foo</stopKey>
 					<stopWait>10</stopWait>
