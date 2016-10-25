@@ -9,7 +9,7 @@ public class Calculadora {
 
 
     /**
-     * Realiza a soma de dois números de ponto flutuante
+     * Realiza a soma de dois numeros de ponto flutuante
      * @param numero1
      * @param numero2
      * @return
