@@ -9,7 +9,7 @@
 	<scm>
 		<developerConnection>scm:git:git@github.com:Jandisson/Calculadora.git</developerConnection>
 		<url>https://github.com/Jandisson/Calculadora</url>
-		<tag>v1.6</tag>
+		<tag>v1.7</tag>
 	</scm>
 
 	<parent>
