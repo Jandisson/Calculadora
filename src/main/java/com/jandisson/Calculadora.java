@@ -26,7 +26,8 @@ public class Calculadora {
      * @return
      */
     @RequestMapping("/mensagem")
-    public String mensagem()
+    public String mensagem(){
+
             return "Mensagem inicial";
     }
                                                  
