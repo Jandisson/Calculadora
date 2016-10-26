@@ -4,7 +4,7 @@
 
 	<groupId>com.jandisson</groupId>
 	<artifactId>Calculadora</artifactId>
-	<version>2.16-SNAPSHOT</version>
+	<version>2.15-SNAPSHOT</version>
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:Jandisson/Calculadora.git</developerConnection>
@@ -16,12 +16,6 @@
      Em uma aplicacao normal, haveria um repositorio onde o deploy poderia ser feito. 
    -->
   <distributionManagement>
-    <repository>
-        <id>localFile</id>
-        <name>RepositoryLocal</name>
-        <url>file:///opt/Aplicacao</url>
-    </repository>
-
     <snapshotRepository>
     <id>nexus-snapshots</id>
     <url>file:///opt/Aplicacao</url>
