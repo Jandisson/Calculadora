@@ -23,12 +23,10 @@ public class Calculadora {
 
      /**
      * Apenas exibe uma mensagem de boas vindas
-     * @param numero1
-     * @param numero2
      * @return
      */
-    @RequestMapping("/mensagem/")
-    public Sring mensagem(
+    @RequestMapping("/mensagem")
+    public String mensagem()
             return "Mensagem inicial";
     }
                                                  

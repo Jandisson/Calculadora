@@ -4,18 +4,23 @@
 
 	<groupId>com.jandisson</groupId>
 	<artifactId>Calculadora</artifactId>
-	<version>2.15-SNAPSHOT</version>
+	<version>3.18-SNAPSHOT</version>
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:Jandisson/Calculadora.git</developerConnection>
 		<url>https://github.com/Jandisson/Calculadora</url>
-		<tag>v1.14</tag>
+		<tag>v2.15</tag>
 	</scm>
 
   <!--
      Em uma aplicacao normal, haveria um repositorio onde o deploy poderia ser feito. 
    -->
   <distributionManagement>
+     <repository>
+        <id>absolute directory</id>
+        <url>file:///opt/Aplicacao</url>
+    </repository>
+
     <snapshotRepository>
     <id>nexus-snapshots</id>
     <url>file:///opt/Aplicacao</url>
@@ -29,6 +34,11 @@
 	</parent>
 
 	<dependencies>
+
+  <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -81,6 +91,7 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+                                     
 			</plugin>
 
 			<plugin>
