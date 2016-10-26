@@ -4,12 +4,12 @@
 
 	<groupId>com.jandisson</groupId>
 	<artifactId>Calculadora</artifactId>
-	<version>3.20-SNAPSHOT</version>
+	<version>3.20</version>
 
 	<scm>
 		<developerConnection>scm:git:git@github.com:Jandisson/Calculadora.git</developerConnection>
 		<url>https://github.com/Jandisson/Calculadora</url>
-		<tag>v3.18</tag>
+		<tag>v3.20</tag>
 	</scm>
 
   <!--
