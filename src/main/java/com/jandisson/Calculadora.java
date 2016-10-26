@@ -28,7 +28,7 @@ public class Calculadora {
     @RequestMapping("/mensagem")
     public String mensagem(){
 
-            return "Mensagem alterada";
+            return "Bem vindo ao mundo devops.";
     }
                                                  
 
