@@ -12,10 +12,13 @@
 		<tag>v1.14</tag>
 	</scm>
 
-<distributionManagement>
+  <!--
+     Em uma aplicacao normal, haveria um repositorio onde o deploy poderia ser feito. 
+   -->
+  <distributionManagement>
     <snapshotRepository>
     <id>nexus-snapshots</id>
-    <url>http://localhost:8083/repository/local/</url>
+    <url>file:///opt/Aplicacao</url>
     </snapshotRepository>
   </distributionManagement>
 
@@ -90,37 +93,9 @@
 			</plugin>
 
 
- <plugin>
-      <groupId>org.apache.maven.plugins</groupId>
-      <artifactId>maven-deploy-plugin</artifactId>
-      <configuration>
-        <skip>true</skip>
-      </configuration>
-    </plugin>
-
-
-   <plugin>
-      <groupId>org.sonatype.plugins</groupId>
-      <artifactId>nexus-staging-maven-plugin</artifactId>
-<executions>
-        <execution>
-          <id>default-deploy</id>
-          <phase>deploy</phase>
-          <goals>
-            <goal>deploy</goal>
-          </goals>
-        </execution>
-      </executions>
-      <version>1.6.6</version>
-      <extensions>true</extensions>
-      <configuration>
-        <serverId>nexus</serverId>
-        <nexusUrl>http://localhost:8083/</nexusUrl>
-      </configuration>
 
 
 
-    </plugin>
 
 
 		</plugins>
