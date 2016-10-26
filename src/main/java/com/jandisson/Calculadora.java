@@ -21,5 +21,17 @@ public class Calculadora {
         return numero1+numero2;
     }
 
+     /**
+     * Apenas exibe uma mensagem de boas vindas
+     * @param numero1
+     * @param numero2
+     * @return
+     */
+    @RequestMapping("/mensagem/")
+    public Sring mensagem(
+            return "Mensagem inicial";
+    }
+                                                 
+
 
 }
