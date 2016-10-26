@@ -28,7 +28,7 @@ public class Calculadora {
     @RequestMapping("/mensagem")
     public String mensagem(){
 
-            return "Mensagem inicial";
+            return "Mensagem alterada";
     }
                                                  
 
