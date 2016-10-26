@@ -16,6 +16,11 @@
      Em uma aplicacao normal, haveria um repositorio onde o deploy poderia ser feito. 
    -->
   <distributionManagement>
+     <repository>
+        <id>absolute directory</id>
+        <url>file:///opt/Aplicacao</url>
+    </repository>
+
     <snapshotRepository>
     <id>nexus-snapshots</id>
     <url>file:///opt/Aplicacao</url>
