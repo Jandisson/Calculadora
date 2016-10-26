@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<body>
+
+<p style="text-align: center;"><strong>Resumo do teste de profici&ecirc;ncia</strong></p>
+<p>&nbsp;</p>
+<p>As 3 etapas foram cumpridas. O webservice foi constru&iacute;do usando spring boot. Isso simplificou o c&oacute;digo de forma a resum&iacute;-lo em apenas algumas linhas. Devido a extrema simplificidade da aplica&ccedil;&atilde;o, n&atilde;o foi poss&iacute;vel demonstrar conhecimento em design patterns e princ&iacute;pios de desenvolvimento de software orientado a objetos como o SOLID. Uma observa&ccedil;&atilde;o pertinente &eacute; em rela&ccedil;&atilde;o ao reposit&oacute;rio maven. N&atilde;o foi mencionada a necessidade de utiliza&ccedil;&atilde;o de um reposit&oacute;rio para os componentes gerados. Eu sugeriria a utiliza&ccedil;&atilde;o do Nexus.</p>
+<p><strong>Configura&ccedil;&atilde;o e execu&ccedil;&atilde;o do container.</strong></p>
+<p>&nbsp;</p>
+<p>Realizar os seguintes passos assumindo que o docker esteja instalado e rodando:</p>
+<p>&nbsp;</p>
+<ol>
+<li>Baixar a imagem com o comando docker pull jandisson/imagem_calculadora:semi.</li>
+<li>Executar o seguinte comando para iniciar o container: docker run -d -p 8082:8082 -p 8081:8081 -p 8083:8083 -ti docker.io/jandisson/imagem_calculadora:semi Caso haja alguma mensagem de erro indicando que a imagem n&atilde;o foi encontrada, verificar o nome exato da imagem baixada com o comando docker images.</li>
+<li>Para se conectar ao container rec&eacute;m iniciado deve-se utilizar o comando docker attach --sig-proxy XXXXX. Onde XXXXX &eacute; o id do container. Para encontrar o id basta executar o comando docker ps.</li>
+<li>Executar o comando source /etc/profile.</li>
+<li>Executar o comando /etc/init.d/jenkins start</li>
+<li>Executar o script /root/start.sh. O script start.sh &eacute; respons&aacute;vel por iniciar o jetty com a vers&atilde;o atual do software.</li>
+</ol>
+<p>&nbsp;</p>
+<p><strong>O webservice Rest.</strong></p>
+<p>A aplica&ccedil;&atilde;o consiste em dois m&eacute;todos:</p>
+<p>&nbsp;</p>
+<ol>
+<li>Soma: realizar a soma de dois n&uacute;meros. Pode ser acessada de http://localhost:8081/soma/3/4. Onde 3 e 4 s&atilde;o os n&uacute;meros a serem somados.</li>
+<li>mensagem: um m&eacute;todo que exibe uma mensagem pre-configurada. Pode ser acessarda em <a href="http://localhost:8081/mensagem. ">http://localhost:8081/mensagem. </a></li>
+</ol>
+<p><strong>Versionamento do c&oacute;digo.</strong></p>
+<p>O reposit&oacute;rio git do projeto est&aacute; armazenado em /opt/Calculadora. O origin do reposit&oacute;rio est&aacute; hospedado no github no seguinte endere&ccedil;o: <a href="https://github.com/Jandisson/Calculadora. ">https://github.com/Jandisson/Calculadora. </a></p>
+<p>&nbsp;</p>
+<p><strong>Integra&ccedil;&atilde;o cont&iacute;nua.</strong></p>
+<p>&nbsp;</p>
+<p>Para efetivar o conceito de integra&ccedil;&atilde;o est&aacute; sendo usado o jenkins. Ele pode ser acessado em http://localhost:8082. Para simplificar, o jenkins foi configurado sem seguran&ccedil;a. Ou seja, n&atilde;o exige login e senha.</p>
+<p>&nbsp;</p>
+<p><strong>Como testar o deploy autom&aacute;tico.</strong></p>
+<p>&nbsp;</p>
+<p>Para realizar uma altera&ccedil;&atilde;o com deploy autom&aacute;tico deve-se:</p>
+<p>&nbsp;</p>
+<ol>
+<li>Alterar os arquivos. Uma sugest&atilde;o &eacute; alterar a mensagem retornada no m&eacute;todo mensagem da classe src/main/java/com/jandisson/Calculadora.java.</li>
+<li>Adicionar ao index arquivos alterados. Isso &eacute; feito usando o comando git add --all na raiz do reposit&oacute;rio.</li>
+<li>Realizar o commit das altera&ccedil;&otilde;es com git commit. Deve ser inserida uma mensagem de texto explicando o commit.</li>
+<li>Usar o comando mvn release:prepare release:perform para realizar o release autom&aacute;tico da altera&ccedil;&atilde;o.</li>
+<li>Acessar a url http://localhost:8081/mensagem para verificar se a nova mensagem aparece na tela.</li>
+<li></li>
+</ol>
+<p><strong>Como o deploy autom&aacute;tico est&aacute; sendo feito.</strong></p>
+<ol>
+<li>Todo commit realizado no reposit&oacute;rio local executa um hook que indica ao jenkis que ele deve construir um nova vers&atilde;o.</li>
+<li>Sempre que o jenkis cria um novo build, o jetty &eacute; parado e iniciado novamente com a nova vers&atilde;o do software.</li>
+</ol>
+<p><strong>Possibilidades de melhorias identificadas.</strong></p>
+<p>&nbsp;</p>
+<p>Segue algumas melhorias que poderiam ser feitas para deixar o projeto melhor. Elas n&atilde;o puderam ser feitas devido ao tempo dispon&iacute;vel para execu&ccedil;&atilde;o dessas tarefas ter sido limitado.</p>
+<p>&nbsp;</p>
+<ol>
+<li>Poderia ser usado um DockerFile ao inv&eacute;s de uma imagem. Assim, seria bem mais f&aacute;cil distribuir e n&atilde;o seria necess&aacute;rio executar alguns scripts manualmente.</li>
+<li>Poderiam ser feitos testes comportamentais com o Mockito. Por&eacute;m, devido a simplicidade da aplica&ccedil;&atilde;o n&atilde;o houve essa necessidade.</li>
+<li>A utiliza&ccedil;&atilde;o do tomcat facilitaria muito o deploy feito pelo Jenkins. Seria necess&aacute;ria apenas fazer o deploy do novo WAR gerado ao inv&eacute;s de reiniciar o servidor.</li>
+</ol>
+</body>
+</html>
